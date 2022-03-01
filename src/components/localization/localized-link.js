@@ -220,13 +220,17 @@ const ExternalLink = ({
             onClick(e)
         }
     }
+    const handleRestOfWorld = (e) => {
+        if (typeof onClick === 'function') {
+            onClick(e)
+        }
+    }
 
     return (
         <StyledAnchor
             style={style ? style : default_style}
             aria-label={aria_label}
-            href={!show_modal ? url : ''}
-            onClick={show_modal ? handleClick : null}
+            onClick={show_modal ? handleClick : handleRestOfWorld}
             disabled={!mounted}
             target={final_target}
             rel={rel}

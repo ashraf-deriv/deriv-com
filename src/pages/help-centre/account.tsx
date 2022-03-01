@@ -43,32 +43,43 @@ const WhoCanOpenAnAccount = ({ text }: ArticleProps) => (
     </ArticleWrapper>
 )
 
-const ChangingPersonalDetails = ({ text }: ArticleProps) => (
-    <ArticleWrapper>
-        <StyledHeader as="h4">{text}</StyledHeader>
-        <Text>
-            <Localize
-                translate_text="If your account is not authenticated, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
-                components={[
-                    <strong key={0} />,
-                    <StyledLink
-                        to={`${deriv_app_url}/account/personal-details`}
-                        external="true"
-                        weight="bold"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={1}
-                    />,
-                ]}
-            />
-        </Text>
-        <StyledText>
-            {localize(
-                'If the account has been fully authenticated, you can submit a ticket requesting the desired changes. Please attach your proof of identity and address.',
-            )}
-        </StyledText>
-    </ArticleWrapper>
-)
+const ChangingPersonalDetails = ({ text }: ArticleProps) => {
+    const redirectionHandle = () => {
+        window.open(
+            `${deriv_app_url}/account/personal-details`,
+            'newwindow',
+            'width=400, height=550',
+        )
+        return false
+    }
+    return (
+        <ArticleWrapper>
+            <StyledHeader as="h4">{text}</StyledHeader>
+            <Text>
+                <Localize
+                    translate_text="If your account is not authenticated, you can change your name, date of birth, or citizenship by going to <0>Settings ></0> <1>Personal details</1>."
+                    components={[
+                        <strong key={0} />,
+                        <StyledLink
+                            to={`${deriv_app_url}/account/personal-details`}
+                            onClick={redirectionHandle}
+                            external="true"
+                            weight="bold"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={1}
+                        />,
+                    ]}
+                />
+            </Text>
+            <StyledText>
+                {localize(
+                    'If the account has been fully authenticated, you can submit a ticket requesting the desired changes. Please attach your proof of identity and address.',
+                )}
+            </StyledText>
+        </ArticleWrapper>
+    )
+}
 
 const ChangeAccountCurrency = ({ text }: ArticleProps) => (
     <ArticleWrapper>
