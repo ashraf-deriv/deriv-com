@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkderiv_com=self.webpackChunkderiv_com||[]).push([[2571],{49253:function(e,n,r){r.r(n),r.d(n,{url:function(){return c}});var c=(0,r(65084).jU)()?window.location.href:""}}]);
+//# sourceMappingURL=component---src-pages-academy-components-utility-ts-0c064db652d3e97309ef.js.map
